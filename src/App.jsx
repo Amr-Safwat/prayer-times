@@ -5,6 +5,7 @@ import axios from 'axios';
 import './App.css';
 import {PrayerContext} from './components/contexts/PrayerContext';
 import image from './assets/image.jpg'
+import { BottomNavigation } from './components/bottomNavigation/BottomNavigation';
 
 function App() {
   const prayer = useContext(PrayerContext);
@@ -46,6 +47,7 @@ function App() {
     >
       <TopBar />
       <Content />
+      <BottomNavigation />
     </div>
   );
 }

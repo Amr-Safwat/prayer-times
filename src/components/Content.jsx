@@ -1,5 +1,12 @@
 import Container from '@mui/material/Container';
-import {Button, Card, CardContent, Divider, Stack, Typography} from '@mui/material';
+import {
+  Button,
+  Card,
+  CardContent,
+  Divider,
+  Stack,
+  Typography,
+} from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import {useContext, useEffect, useState} from 'react';
 import './content.css';
@@ -27,15 +34,20 @@ function Content() {
       const minute = dateObject.getMinutes();
       let second = dateObject.getSeconds();
 
-      if (second < 10) {
-        second = '0' + second;
-      } else {
-        ('');
-      }
+      addZeroToTime(hour)
+      // addZeroToTime(minute)
+      // addZeroToTime(second)
+
+      console.log(hour < 10? '0' + hour: hour)
+
       const currentTime = second + ' : ' + minute + ' : ' + hour;
       setTime(currentTime);
     }, 1000);
   }, []);
+
+  function addZeroToTime(timeValue) {
+    return timeValue < 10 ? '0' + timeValue : timeValue;
+  }
 
   return (
     <Container
@@ -43,7 +55,7 @@ function Content() {
         display: 'flex',
         alignItems: {xs: 'noraml', sm: 'center'},
         justifyContent: 'center',
-        height: {xs: 'calc(100vh - 56px)', },
+        height: {xs: 'calc(100vh - 56px)'},
         direction: 'rtl',
         backdropFilter: 'blur(4px)',
         padding: 0,
@@ -56,7 +68,9 @@ function Content() {
             <Typography variant="h3" sx={{mb: 1}}>
               مواقيت الصلاة
             </Typography>
-            <Typography variant='body1' sx={{mb: 2}}>اوقات الصلاة حسب الهيئة العامة المصرية للمساحة</Typography>
+            <Typography variant="body1" sx={{mb: 2}}>
+              اوقات الصلاة حسب الهيئة العامة المصرية للمساحة
+            </Typography>
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
               <span style={{fontSize: '25px'}}>القاهرة </span>
               <span style={{fontSize: '20px'}}>{prayer.prayer.day}</span>
@@ -130,17 +144,13 @@ function Content() {
                 <span>الساعة : </span>
                 <span id="txt">{time}</span>
               </div>
-              <Button
-                variant="contained"
-                sx={{fontSize: 18, fontWeight: 'bold'}}
-              >
-                القران الكريم
-              </Button>
             </Stack>
           </CardContent>
         ) : (
           <>
-            <CardContent sx={{justifyContent: 'center', display: 'flex'}}>
+            <CardContent
+              sx={{justifyContent: 'center',alignItems: 'center', display: 'flex', height: '100%'}}
+            >
               <CircularProgress />
             </CardContent>
             <Typography
