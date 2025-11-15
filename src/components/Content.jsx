@@ -30,28 +30,21 @@ function Content() {
   useEffect(() => {
      setInterval(() => {
       const dateObject = new Date();
-
-      let hour = dateObject.getHours();
-      let minute = dateObject.getMinutes();
-      let second = dateObject.getSeconds();
-
-      hour = addZeroToTime(hour)
-      minute = addZeroToTime(minute)
-      second = addZeroToTime(second)
       
-      const currentTime = second + ' : ' + minute + ' : ' + hour;
-      // console.log(currentTime)
-      setTime(currentTime);
+      const newDate = new Intl.DateTimeFormat('en-US', {
+        hour: '2-digit',
+        minute: 'numeric',
+        second: '2-digit',
+        hour12: true,
+      }).format(dateObject);
+
+      console.log(newDate);
+      
+
+      setTime(newDate);
+      
     }, 1000);
   }, []);
-
-  function addZeroToTime(timeValue) {
-    if(timeValue < 10){
-      return timeValue = '0' + timeValue
-    }else{
-      return timeValue
-    }
-  }
 
   return (
     <Container
@@ -150,12 +143,13 @@ function Content() {
             >
               <div
                 style={{
-                  backgroundColor: 'greenyellow',
+                  backgroundColor: '#aaa',
                   padding: '10px 20px',
                   borderRadius: '4px',
+                  width: '100%'
                 }}
               >
-                <span>الساعة : </span>
+                <span>الساعة الان : </span>
                 <span id="txt">{time}</span>
               </div>
             </Stack>

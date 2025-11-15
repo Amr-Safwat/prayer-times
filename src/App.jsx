@@ -13,8 +13,6 @@ import Quran from './components/pages/Quran';
 function App() {
   const prayer = useContext(PrayerContext);
 
-  // const axios = require('axios');
-
   useEffect(() => {
     // Make a request for a user with a given ID
     axios
