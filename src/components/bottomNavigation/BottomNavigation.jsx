@@ -20,18 +20,21 @@ export function BottomNavigation() {
       width={'100%'}
     >
       <div className="times active">
-        <Link to='prayer-times/quran'>
-        <AccessTimeFilledIcon fontSize={'medium'} />
+        <Link to="prayer-times" className='link'>
+          <AccessTimeFilledIcon fontSize={'medium'} className="icon" />
+          <span>اوقات الصلاة</span>
         </Link>
       </div>
       <div className="quran">
-        <Link to="prayer-times/quran">
-          <MenuBookIcon fontSize={'medium'} />
+        <Link to="prayer-times/quran" className='link'>
+          <MenuBookIcon fontSize={'medium'} className="icon" />
+          <span>القران الكريم</span>
         </Link>
       </div>
       <div className="profile">
-        <Link to="prayer-times/profile">
-          <AccountCircleIcon fontSize={'medium'} />
+        <Link to="prayer-times/profile" className='link'>
+          <AccountCircleIcon fontSize={'medium'} className="icon" />
+          <span>الحساب</span>
         </Link>
       </div>
     </Stack>
