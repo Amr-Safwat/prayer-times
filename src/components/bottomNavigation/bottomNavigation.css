@@ -1,13 +1,10 @@
+.bottomNav {
+    box-shadow: 0px -1px 20px #aaa;
+}
+
 .bottomNav div {
     flex-grow: 1;
     text-align: center;
     padding: 16px 10px;
 }
 
-.active {
-    color: rgba(0, 0, 255, 0.623);
-    background-color: rgba(79, 79, 240, 0.137);
-}
-.quran:active {
-    background-color: red;
-}
