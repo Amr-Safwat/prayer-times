@@ -1,3 +1,5 @@
+
+
 export default function Quran() {
 
   console.log('quran');

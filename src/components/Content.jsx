@@ -67,7 +67,7 @@ function Content() {
       xs={{width: '50%'}}
     >
       <Outlet />
-      <Card sx={{width: 375, borderRadius: {xs: '0', sm: '5px'}}}>
+      <Card sx={{width: {xs: '100%', sm: 380}, borderRadius: {xs: '0', sm: '5px'}}}>
         {!(prayer.prayer.fajr === '20:00') ? (
           <CardContent>
             <Typography variant="h3" sx={{mb: 1}}>

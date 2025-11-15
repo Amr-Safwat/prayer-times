@@ -7,6 +7,7 @@ import {PrayerContext} from './components/contexts/PrayerContext';
 import image from './assets/image.jpg'
 import { BottomNavigation } from './components/bottomNavigation/BottomNavigation';
 import { Routes, Route, Outlet} from 'react-router-dom';
+import Quran from './components/pages/Quran';
 
 
 function App() {
@@ -45,7 +46,6 @@ function App() {
 
   return (
     <div className="app" style={{backgroundImage: `url(${image})`}}>
-      
       <TopBar />
       <Content />
       <BottomNavigation />
