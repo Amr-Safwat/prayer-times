@@ -4,8 +4,11 @@ import {Stack} from '@mui/material';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Link } from 'react-router-dom';
+import {useNavigate} from 'react-router';
 
 export function BottomNavigation() {
+  let navigate = useNavigate();
   return (
     <Stack
       className="bottomNav"
@@ -19,7 +22,14 @@ export function BottomNavigation() {
       <div className="times active">
         <AccessTimeFilledIcon fontSize={'medium'} />
       </div>
-      <div className="quran">
+      <div
+        className="quran"
+        onClick={() => {
+          navigate('/prayer-times/quran');
+        }}
+      >
+        {/* <Link to='/prayer-times/quran'>
+        </Link> */}
         <MenuBookIcon fontSize={'medium'} />
       </div>
       <div className="profile">

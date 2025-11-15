@@ -6,6 +6,8 @@ import './App.css';
 import {PrayerContext} from './components/contexts/PrayerContext';
 import image from './assets/image.jpg'
 import { BottomNavigation } from './components/bottomNavigation/BottomNavigation';
+import { Routes, Route, Outlet} from 'react-router-dom';
+
 
 function App() {
   const prayer = useContext(PrayerContext);
@@ -25,6 +27,7 @@ function App() {
       .then((data) => {
         prayer.setPrayer({
           fajr: data.data.times.Fajr,
+          sunrise: data.data.times.Sunrise,
           dhuhr: data.data.times.Dhuhr,
           asr: data.data.times.Asr,
           maghrib: data.data.times.Maghrib,
@@ -41,10 +44,8 @@ function App() {
   }, []);
 
   return (
-    <div
-      className="app"
-      style={{backgroundImage: `url(${image})`, }}
-    >
+    <div className="app" style={{backgroundImage: `url(${image})`}}>
+      
       <TopBar />
       <Content />
       <BottomNavigation />

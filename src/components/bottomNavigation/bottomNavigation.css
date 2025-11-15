@@ -8,3 +8,6 @@
     color: rgba(0, 0, 255, 0.623);
     background-color: rgba(79, 79, 240, 0.137);
 }
+.quran:active {
+    background-color: red;
+}

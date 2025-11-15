@@ -11,6 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import {useContext, useEffect, useState} from 'react';
 import './content.css';
 import {PrayerContext} from './contexts/PrayerContext';
+import { Outlet } from 'react-router-dom';
 
 function Content() {
   const [time, setTime] = useState();
@@ -27,26 +28,29 @@ function Content() {
   }
 
   useEffect(() => {
-    setInterval(() => {
+     setInterval(() => {
       const dateObject = new Date();
 
-      const hour = dateObject.getHours();
-      const minute = dateObject.getMinutes();
+      let hour = dateObject.getHours();
+      let minute = dateObject.getMinutes();
       let second = dateObject.getSeconds();
 
-      addZeroToTime(hour)
-      // addZeroToTime(minute)
-      // addZeroToTime(second)
-
-      console.log(hour < 10? '0' + hour: hour)
-
+      hour = addZeroToTime(hour)
+      minute = addZeroToTime(minute)
+      second = addZeroToTime(second)
+      
       const currentTime = second + ' : ' + minute + ' : ' + hour;
+      // console.log(currentTime)
       setTime(currentTime);
     }, 1000);
   }, []);
 
   function addZeroToTime(timeValue) {
-    return timeValue < 10 ? '0' + timeValue : timeValue;
+    if(timeValue < 10){
+      return timeValue = '0' + timeValue
+    }else{
+      return timeValue
+    }
   }
 
   return (
@@ -62,6 +66,7 @@ function Content() {
       }}
       xs={{width: '50%'}}
     >
+      <Outlet />
       <Card sx={{width: 375, borderRadius: {xs: '0', sm: '5px'}}}>
         {!(prayer.prayer.fajr === '20:00') ? (
           <CardContent>
@@ -85,6 +90,15 @@ function Content() {
                   </span>
                   <span className="name">
                     {changeTimeTo12(prayer.prayer.fajr)}
+                  </span>
+                </li>
+                <Divider />
+                <li>
+                  <span style={{fontSize: '20px'}} className="time">
+                    الشروق
+                  </span>
+                  <span className="name">
+                    {changeTimeTo12(prayer.prayer.sunrise)}
                   </span>
                 </li>
                 <Divider />
@@ -149,7 +163,12 @@ function Content() {
         ) : (
           <>
             <CardContent
-              sx={{justifyContent: 'center',alignItems: 'center', display: 'flex', height: '100%'}}
+              sx={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                display: 'flex',
+                height: '100%',
+              }}
             >
               <CircularProgress />
             </CardContent>

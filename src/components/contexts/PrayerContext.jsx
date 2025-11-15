@@ -4,11 +4,12 @@ const PrayerContext = createContext();
 
 const PrayerProvider = ({children}) => {
   const [prayer, setPrayer] = useState({
-    fajr: '20:00',
-    dhuhr: '20:00',
-    asr: '20:00',
-    maghrib: '20:00',
-    isha: '20:00',
+    fajr: '00:00',
+    sunrise: '00:00',
+    dhuhr: '00:00',
+    asr: '00:00',
+    maghrib: '00:00',
+    isha: '00:00',
     date: '29 Oct 2025',
     date2: '',
     day: '',
