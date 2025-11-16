@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './quran.css'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function Quran() {
   const [quran, setQuran] = useState({})
@@ -22,6 +23,8 @@ export default function Quran() {
       });
     // Api for get Quran
   }, [])
+  console.log(quran.surahs);
+  
   return (
     <div className="quran-page">
       <h2 className='quran-title'>القران الكريم</h2>
@@ -29,7 +32,13 @@ export default function Quran() {
         {
           quran.surahs !== undefined
             ? quran.surahs.map((surah, index) => {
-                return  <li className='surah'>{index+ 1 +' - '  + surah.name}</li>;
+                return (
+                  <Link key={index} to={`/prayer-times/${index}`} style={{textDecoration: 'none'}}>
+                    <li className="surah">
+                      {index + 1 + ' - ' + surah.name}
+                    </li>
+                  </Link>
+                );
               })
             : null
         }
