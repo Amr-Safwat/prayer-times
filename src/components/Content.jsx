@@ -38,9 +38,6 @@ function Content() {
         hour12: true,
       }).format(dateObject);
 
-      console.log(newDate);
-      
-
       setTime(newDate);
       
     }, 1000);
@@ -59,8 +56,7 @@ function Content() {
       }}
       xs={{width: '50%'}}
     >
-      <Outlet />
-      <Card sx={{width: {xs: '100%', sm: 380}, borderRadius: {xs: '0', sm: '5px'}}}>
+      <Card  sx={{backdropFilter: 'blur(4px)', width: {xs: '100%', sm: 380}, borderRadius: {xs: '0', sm: '5px'}}}>
         {!(prayer.prayer.fajr === '20:00') ? (
           <CardContent>
             <Typography variant="h3" sx={{mb: 1}}>

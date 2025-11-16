@@ -40,11 +40,14 @@ function App() {
         // handle error
         console.log(error);
       });
+
+
+
   }, []);
 
   return (
     <div className="app" style={{backgroundImage: `url(${image})`}}>
-      <TopBar />
+      {/* <TopBar /> */}
       <Content />
       <BottomNavigation />
     </div>
